@@ -1,0 +1,12 @@
+c:\Users\nmcdc\projects\weather\target\rls\debug\deps\scraper-93460c7a64e3ee38.rmeta: C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\lib.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\mod.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\element.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\serializable.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\mod.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\tree_sink.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\node.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\selector.rs
+
+c:\Users\nmcdc\projects\weather\target\rls\debug\deps\scraper-93460c7a64e3ee38.d: C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\lib.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\mod.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\element.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\serializable.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\mod.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\tree_sink.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\node.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\selector.rs
+
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\lib.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\mod.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\element.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\element_ref\serializable.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\mod.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\html\tree_sink.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\node.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\scraper-0.13.0\src\selector.rs:

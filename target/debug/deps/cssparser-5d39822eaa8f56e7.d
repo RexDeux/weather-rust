@@ -1,0 +1,17 @@
+c:\Users\nmcdc\projects\weather\target\debug\deps\cssparser-5d39822eaa8f56e7.rmeta: C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\lib.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\macros.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\rules_and_declarations.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\color.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\cow_rc_str.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\from_bytes.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\nth.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\parser.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\serializer.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\unicode_range.rs c:\Users\nmcdc\projects\weather\target\debug\build\cssparser-fbf6cc5edc390166\out/tokenizer.rs
+
+c:\Users\nmcdc\projects\weather\target\debug\deps\cssparser-5d39822eaa8f56e7.d: C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\lib.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\macros.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\rules_and_declarations.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\color.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\cow_rc_str.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\from_bytes.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\nth.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\parser.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\serializer.rs C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\unicode_range.rs c:\Users\nmcdc\projects\weather\target\debug\build\cssparser-fbf6cc5edc390166\out/tokenizer.rs
+
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\lib.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\macros.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\rules_and_declarations.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\color.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\cow_rc_str.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\from_bytes.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\nth.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\parser.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\serializer.rs:
+C:\Users\nmcdc\.cargo\registry\src\github.com-1ecc6299db9ec823\cssparser-0.27.2\src\unicode_range.rs:
+c:\Users\nmcdc\projects\weather\target\debug\build\cssparser-fbf6cc5edc390166\out/tokenizer.rs:
+
+# env-dep:OUT_DIR=c:\\Users\\nmcdc\\projects\\weather\\target\\debug\\build\\cssparser-fbf6cc5edc390166\\out
