@@ -1,9 +1,9 @@
+use std::hash::Hash;
 use std::io;
 use std::format;
 use std::io::Read;
 use reqwest::Error;
-use scraper::html;
-use scraper::{Html, Selector};
+use std::collections::HashMap;
 
 struct Report {
     name: String,
@@ -30,7 +30,7 @@ fn main() {
 
 fn process_json(input: &str) -> Result<String, Error> {
     let html = api(&input)?;
-    let formatted = match api(&html) {
+    let formatted = match api(&input) {
         Some(report) => format!("The temp in {} is {} and the the weather is {}.", report.name, report.timezone, report.description),
         None => String::from("An error while parsing the weather report.")
     };
@@ -43,18 +43,11 @@ fn print_header() {
     println!("-------------------------");
 }
 
-fn api(city: &str) -> Result<String, Error> {
+async fn api(city: &str) -> Result<(), Box<dyn std::error::Error>> {
     let url = format!("http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d", city);
-    let mut res = reqwest::blocking::get(&url)?;
-    let mut body = String::new();
-    println!("Status: {}", res.status());
-    println!("Headers:\n{:#?}", res.headers());
-    println!("Body:\n{}", body);
-
+    let resp = reqwest::get(&url)
+        .await?
+        .json::<HashMap<String, String>>()
+        .await?;
     Ok(())
-}
-
-fn get_weather_from_api(json: &str) -> Option<Report> {
-    let document = Html::parse_document(json);
-
 }
