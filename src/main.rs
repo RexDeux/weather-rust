@@ -1,61 +1,103 @@
 use std::collections::HashMap;
-use reqwest::header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE};
-use serde::{Deserialize, Serialize};
 use std::env;
+use serde::{Deserialize, Serialize};
+use reqwest::header::{ACCEPT, CONTENT_TYPE};
 
-#[derive(Serialize, Deserialize, Debug)]
-struct Weather {
-    name : Vec<Name>,
-    description: String,
-    main: String,
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Root {
+    pub coord: Coord,
+    pub weather: Vec<Weather>,
+    pub base: String,
+    pub main: Main,
+    pub visibility: i64,
+    pub wind: Wind,
+    pub rain: Rain,
+    pub clouds: Clouds,
+    pub dt: i64,
+    pub sys: Sys,
+    pub timezone: i64,
+    pub id: i64,
+    pub name: String,
+    pub cod: i64,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-struct Name {
-    name : String,
-    timezone: f32,
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Coord {
+    pub lon: f64,
+    pub lat: f64,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-struct Main {
-    temp: f32,
-    temp_min: f32,
-    temp_max: f32,
-    feels_like: f32,
-    weather: Weather 
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Weather {
+    pub id: i64,
+    pub main: String,
+    pub description: String,
+    pub icon: String,
 }
 
-
-#[derive(Serialize, Deserialize, Debug)]
-struct Items<W> {
-    items: Vec<W>,
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Main {
+    pub temp: f64,
+    #[serde(rename = "feels_like")]
+    pub feels_like: f64,
+    #[serde(rename = "temp_min")]
+    pub temp_min: f64,
+    #[serde(rename = "temp_max")]
+    pub temp_max: f64,
+    pub pressure: i64,
+    pub humidity: i64,
+    #[serde(rename = "sea_level")]
+    pub sea_level: i64,
+    #[serde(rename = "grnd_level")]
+    pub grnd_level: i64,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-struct APIResponse {
-    mains: Items<Main>,
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Wind {
+    pub speed: f64,
+    pub deg: i64,
+    pub gust: f64,
 }
 
-fn print_reports(mains: Vec<&Main>) {
-    for main in mains {
-        println!("🔥 {}", main.temp);
-        println!("💿 {}", main.weather.description);
-        println!(
-            "🕺 {}",
-            main
-                .weather
-                .name
-                .iter()
-                .map(|name| name.name.to_string())
-                .collect::<String>()
-        );
-        println!("🌎 {}", main.temp);
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Rain {
+    #[serde(rename = "1h")]
+    pub n1h: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Clouds {
+    pub all: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Sys {
+    #[serde(rename = "type")]
+    pub type_field: i64,
+    pub id: i64,
+    pub country: String,
+    pub sunrise: i64,
+    pub sunset: i64,
+}
+
+fn print_reports(weathers: Vec<&Weather>) {
+    for weather in weathers {
+        println!("🔥 {}", weather.main);
+        println!("💿 {}", weather.description);
         println!("---------")
     }
 }
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
     let search_query = &args[1];    
     let url = format!("
@@ -63,24 +105,13 @@ async fn main() {
     query = search_query
 );
     let client = reqwest::Client::new();
-    let response = client
+    let resp = client
         .get(url)
-        .header(CONTENT_TYPE, "application/json")
-        .header(ACCEPT, "application/json")
         .send()
         .await
-        // each response is wrapped in a `Result` type
-        // we'll unwrap here for simplicity
-        .unwrap();
-    match response.status() {
-        reqwest::StatusCode::OK => {
-            match response.json::<APIResponse>().await {
-                Ok(parsed) => print_reports(parsed.mains.items.iter().collect()),
-                Err(_) => println!("Hm, the response didn't match the shape we expected."),
-            };
-        }
-    };
-    println!("It is working bruv! {:?}", response);
-
-    
+        .unwrap()
+        .text()
+        .await;
+    println!("{:#?}", resp);
+    Ok(())
 }
