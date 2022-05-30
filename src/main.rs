@@ -1,7 +1,8 @@
 use std::collections::HashMap;
 use std::env;
-use serde::{Deserialize, Serialize};
-use reqwest::header::{ACCEPT, CONTENT_TYPE};
+use reqwest::Response;
+use serde::{Deserialize,Serialize};
+use reqwest::blocking::get;
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -97,21 +98,17 @@ fn print_reports(weathers: Vec<&Weather>) {
 }
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() {
     let args: Vec<String> = env::args().collect();
     let search_query = &args[1];    
     let url = format!("
     http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d",
     query = search_query
 );
-    let client = reqwest::Client::new();
-    let resp = client
-        .get(url)
-        .send()
-        .await
-        .unwrap()
-        .text()
-        .await;
-    println!("{:#?}", resp);
-    Ok(())
+    let res = get(url).unwrap();
+    let weathers = res.json::<Response>().unwrap();
+
+    for weather in weathers {
+        println!("wEATHER: {} weather {}", weather.main, weather.description);
+    }
 }
