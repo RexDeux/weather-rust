@@ -1,8 +1,8 @@
-use std::collections::HashMap;
-use std::env;
-use reqwest::Response;
 use serde::{Deserialize,Serialize};
 use reqwest::blocking::get;
+use std::env;
+
+pub type Response = Vec<Weather>;
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -89,22 +89,12 @@ pub struct Sys {
     pub sunset: i64,
 }
 
-fn print_reports(weathers: Vec<&Weather>) {
-    for weather in weathers {
-        println!("🔥 {}", weather.main);
-        println!("💿 {}", weather.description);
-        println!("---------")
-    }
-}
-
 #[tokio::main]
-async fn main() {
+fn main() {
     let args: Vec<String> = env::args().collect();
     let search_query = &args[1];    
     let url = format!("
-    http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d",
-    query = search_query
-);
+    http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d", query = search_query);
     let res = get(url).unwrap();
     let weathers = res.json::<Response>().unwrap();
 
