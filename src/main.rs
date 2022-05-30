@@ -1,6 +1,8 @@
 use serde::{Deserialize,Serialize};
-use reqwest::blocking::get;
+use serde_json::json;
+use reqwest;
 use std::env;
+
 
 pub type Response = Vec<Weather>;
 
@@ -90,18 +92,22 @@ pub struct Sys {
 }
 
 
-
-fn main() {
+#[tokio::main]
+async fn main() {
     let args: Vec<String> = env::args().collect();
     let search_query = &args[1];    
     let url = format!("
     http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d",
     query = search_query
 );
-    let res = get(url).unwrap();
-    let weathers = res.json::<Response>().unwrap();
+    let client = reqwest::Client::new();
+    let res = client
+        .get(url)
+        .send()
+        .await
+        .unwrap()
+        .text()
+        .await;
+    println!("It is working bruv! {:?}", res);
 
-    for weather in weathers {
-        println!("Weather: {} weather {}", weather.main, weather.description);
-    }
 }
