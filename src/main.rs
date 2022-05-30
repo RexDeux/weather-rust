@@ -89,16 +89,19 @@ pub struct Sys {
     pub sunset: i64,
 }
 
-#[tokio::main]
+
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let search_query = &args[1];    
     let url = format!("
-    http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d", query = search_query);
+    http://api.openweathermap.org/data/2.5/weather?q={query}&units=metric&appid=a2290f5132b80143df242aa1fe7a093d",
+    query = search_query
+);
     let res = get(url).unwrap();
     let weathers = res.json::<Response>().unwrap();
 
     for weather in weathers {
-        println!("wEATHER: {} weather {}", weather.main, weather.description);
+        println!("Weather: {} weather {}", weather.main, weather.description);
     }
 }
